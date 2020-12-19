@@ -1,40 +1,15 @@
 const correcto = "4325"
-function breaker (num){
-    
-    let respuesta = ""
-  
-    if (correcto.includes(num,0)){
-        respuesta = "XXXX"
-        
-    } else{
-        let correctoSplit = correcto.split("")
-        let numeros = num.split("")
-        if (correcto.includes(numeros[0])){
-            if(correctoSplit[0] == numeros[0]){
-                respuesta = "X" + respuesta
-            }else{
-                respuesta = respuesta + "_"
-            }
-            
-            
-        }if (correcto.includes(numeros[1])){
-            if(correctoSplit[1] == numeros[1]){
-                respuesta = "X" + respuesta
-            }else{
-                respuesta = respuesta + "_"
-            }
+function breaker(num) {
 
-        }if (correcto.includes(numeros[2])){
-            if(correctoSplit[2] == numeros[2]){
+    let respuesta = ""
+    let correctoSplit = correcto.split("")
+    let numeros = num.split("")
+
+    for (let i = 0; i < 4; i++) {
+        if (correcto.includes(numeros[i])) {
+            if (correctoSplit[i] == numeros[i]) {
                 respuesta = "X" + respuesta
-            }else{
-                respuesta = respuesta + "_"
-            }
-            
-        }if (correcto.includes(numeros[3])){
-            if(correctoSplit[3] == numeros[3]){
-                respuesta = "X" + respuesta
-            }else{
+            } else {
                 respuesta = respuesta + "_"
             }
         }
@@ -42,4 +17,4 @@ function breaker (num){
     return respuesta
 }
 
-module.exports = {breaker}
+module.exports = { breaker }
